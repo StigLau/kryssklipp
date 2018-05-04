@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: kryssklipp-server
+  name: kryssklipp-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kryssklipp-server
+  template:
+    metadata:
+      labels:
+        app: kryssklipp-server
+    spec:
+      containers:
+      - image: docker.nrk.no/kryssklipp/kryssklipp-server:latest
+        name: kryssklipp-server
+#        imagePullPolicy: Always
+#        env:
+#        - name: APP_PARAMS
+#          value: "worker"
+#        - name: JAVA_OPTS
+#          value: "-Xmx1536m -javaagent:/opt/jolokia/jolokia.jar=host=0.0.0.0,password=jolokia,user=jolokia -agentpath:/config/yourkit/bin/linux-x86-64/libyjpagent.so"
+
+#        livenessProbe:
+#          httpGet:
+#            path: /status
+#            port: 8008
+#            httpHeaders:
+#          initialDelaySeconds: 20
+#          periodSeconds: 60
