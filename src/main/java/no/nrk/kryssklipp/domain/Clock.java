@@ -22,6 +22,10 @@ public class Clock {
         programs.add(new ProgramInTime(programDefinition, Duration.parse(programStart), Duration.parse(programDuration)));
     }
 
+    public List<ProgramInTime> getPrograms() {
+        return programs;
+    }
+
 
     public List<Program> renderPrograms() {
         List<Program> programList = new ArrayList<>();

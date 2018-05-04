@@ -7,13 +7,20 @@ public class ProgramDefinition {
     public String title;
     public String progId;
 
-    public Duration snippetStartsAt;
-    public Duration snippetDuration;
+    public String snippetstartstring;
+    public String snippetdurationstring;
+    transient public Duration snippetStartsAt;
+    transient public Duration snippetDuration;
 
-    public ProgramDefinition(String title, String progId, String durrationBeforesnippetStartS, String snippetDuration) {
+    public ProgramDefinition(){
+
+    }
+    public ProgramDefinition(String title, String progId, String durrationBeforesnippetStart, String snippetDuration) {
         this.title = title;
         this.progId = progId;
-        this.snippetStartsAt = Duration.parse(durrationBeforesnippetStartS);
+        this.snippetstartstring = durrationBeforesnippetStart;
+        this.snippetdurationstring = snippetDuration;
+        this.snippetStartsAt = Duration.parse(durrationBeforesnippetStart);
         this.snippetDuration = Duration.parse(snippetDuration);
 
     }
